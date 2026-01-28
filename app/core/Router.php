@@ -1,15 +1,31 @@
 <?php
 namespace App\Core;
 
-use App\Controllers\StudentController; 
+use App\Controllers\StudentController;
+use Stringable; 
 
 class Router
 {
+    private array $routes= [];
+
+    public function add(string $method, string $uri, string $controller, string $function): void
+    {
+        $this->routes[]= [
+            'method' => $method,
+            'uri' => $uri,
+            'controller' => $controller,
+            'function' => $function,
+        ];
+    } 
 
     public function run(): void
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
+
+        foreach ($this as $route) {
+            # <code class=""> </code>
+        }
 
         if ($method == 'GET' && $uri == '/students') {
             require_once './app/controllers/StudentController.php';
