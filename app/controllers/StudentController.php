@@ -6,7 +6,7 @@ class StudentController
     
     public function index() : void
     {
-        require_once '.../\app/views/students/index.php';
+        require_once '../app/views/students/index.php';
     }
 
     public function create(): void
