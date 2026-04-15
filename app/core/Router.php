@@ -1,7 +1,6 @@
 <?php 
 namespace App\Core;
 
-use App\Controller\StudentController;
 
 class Router
 {
@@ -38,7 +37,7 @@ class Router
                 require_once '../app/controllers/' . $route['controller'] . '.php';
                 $function = $route['function'];
 
-                $controllerClass = 'App\\Controller\\' . $route['controller'];
+                $controllerClass = 'App\\Controllers\\' . $route['controller'];
                 $controller = new $controllerClass();
 
                 call_user_func_array([$controller, $function], $matches);
