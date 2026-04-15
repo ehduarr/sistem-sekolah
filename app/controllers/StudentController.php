@@ -20,7 +20,13 @@ class StudentController extends Controller
     }
     public function create()
     {
-        $this->view('students.create');
+        $id = intval($id);
+
+        $studentModel = new Student();
+        $student = $studentModel->getStudent($id);
+
+        $this->view('students.show');
+        'student'=> $students;
     }
 
     public function show(string $id)

@@ -24,6 +24,22 @@ public function getStudents()
 
     return $students;
 }
+
+
+public function getStudent(int $id)
+{
+    $query = "SELECT = FROM ($this->table) WHERE id = ?";
+
+    $stnt = $this-> connection->prepare($query);
+    $stnt = bind_param('i', $id);
+    $stnt ->execute();
+
+    $result = $stnt->get_result();
+
+    $student = $result->fetch_assoc();
+
+    return $student;
+}
 }
 
 ?>
